@@ -46,7 +46,7 @@ GLFWwindow *initializeAndCreateWindow()
     return window;
 }
 
-// $>>>>>>>>> New
+// $>>>>>>>>> New - start
 // This function takes file path of shader GLSL and set it as shader's source
 void sourceShader(unsigned int shader, const std::string &filePath)
 {
@@ -149,15 +149,14 @@ void setAttributesPointers()
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (GLvoid *)(3 * sizeof(GLfloat)));
     glEnableVertexAttribArray(1);
 }
-// $>>>>>>>>> New
+// $>>>>>>>>> New - end
 
 int main()
 {
     // This part of code is for window creation
     GLFWwindow *window = initializeAndCreateWindow();
 
-    // $>>>>>>>>> New
-    // $>>>>>>>>> New
+    // $>>>>>>>>> New - start
 
     // 1. Create program (pipeline)
     // 1.1 Create vertex shader
@@ -192,23 +191,20 @@ int main()
     // 6. Set indices (pointers) to the data in the VBO (aka attributes)
     setAttributesPointers();
 
-    // $>>>>>>>>> New
-    // $>>>>>>>>> New
+    // $>>>>>>>>> New - end
 
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
 
-        // $>>>>>>>>> New
-        // $>>>>>>>>> New
+        // $>>>>>>>>> New - start
 
         // 7. Draw the mesh
         glUseProgram(shaderProgram);
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
         
-        // $>>>>>>>>> New
-        // $>>>>>>>>> New
+        // $>>>>>>>>> New - end
 
         glfwSwapBuffers(window);
         glfwPollEvents();
